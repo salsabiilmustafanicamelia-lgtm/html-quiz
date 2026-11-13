@@ -175,6 +175,16 @@ def get_question_after(question_id=0, quiz_id=1):
     close()
     return result
 
+def get_quiz():
+    query = '''
+        SELECT * FROM quiz ORDER BY id
+    '''
+    open()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    close()
+    return result
+
 ## Entry Point untuk menjalankan program
 def main():
   clear_db()
