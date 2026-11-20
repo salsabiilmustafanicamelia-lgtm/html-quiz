@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz - Test Page</title>
 </head>
 <body>
-    
+    <!-- QUESTION START -->
+    {% if question %}
+    <h1>{{ question }}</h1>
+    {% endif %}
+    <!-- QUESTION START -->
+
+
+    <!-- OPTION START -->
+    <form action="test" method="post">
+        <input type="hidden" name="q_id" value="{{quest_id}}">
+        <!-- Multiple choice -->
+        {% for answer in answers_list %}
+        <div>
+            <div>
+                <input type="radio" name="ans_test" value="{{ answer }}">{{ answer }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Tombol -->
+        <div>
+            <input type="submit" value="Submit Answer">
+        </div>
+
+    </form>
+    <!-- OPTION END -->
 </body>
 </html>
