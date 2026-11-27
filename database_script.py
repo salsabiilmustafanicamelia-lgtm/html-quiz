@@ -190,7 +190,7 @@ def check_answer(q_id, ans_text):
     SELECT questions.answer
     FROM quiz_content, questions
     WHERE quiz_content.id = ?
-    AND quiz_content.question_id = question.id
+    AND quiz_content.question_id = questions.id
     '''
 
     open()
@@ -199,11 +199,14 @@ def check_answer(q_id, ans_text):
     close()
 
     if result is None:
+        print("False 1")
         return False
     else:
         if result[0] == ans_text:
+            print("True")
             return True #Jawaban benar
         else:
+            print("False 2")
             return False #Jawaban salah
 
 ## Entry Point untuk menjalankan program

@@ -40,11 +40,11 @@ def index():
 # == TEST UTILITY START - TEST PAGE ===
 
 def question_form(question):
-    answer_list = [
+    answers_list = [
         question[2],
         question[3],
         question[4],
-        question[5],
+        question[5]
         ]
     shuffle(answers_list)
     return render_template(
@@ -62,11 +62,11 @@ def save_answers():
     session['total'] += 1
 
     if check_answer(quest_id, answer):
-        session['answer'] += 1
+        session['answers'] += 1
 
 def test():
     # global last_question
-    if not('quiz' in session) or int(session['quiz'] < 0):
+    if not('quiz' in session) or int(session['quiz']) < 0:
         return redirect(url_for('index'))
     else:
         if request.method =='POST':
