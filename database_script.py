@@ -194,7 +194,7 @@ def check_answer(q_id, ans_text):
     '''
 
     open()
-    cursor.execute(query, str(q_id))
+    cursor.execute(query, (q_id,))
     result = cursor.fetchone()
     close()
 
